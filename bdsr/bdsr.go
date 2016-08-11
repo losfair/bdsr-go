@@ -50,6 +50,6 @@ func Request(access_token string, rawWAV []byte) (string,error) {
 		return "",errors.New("API error: "+strconv.Itoa(err_no))
 	}
 
-	return decoded["result"].([]string)[0],nil
+	return decoded["result"].([]interface{})[0].(string),nil
 }
 
