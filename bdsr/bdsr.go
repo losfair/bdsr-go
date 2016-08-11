@@ -45,7 +45,7 @@ func Request(access_token string, rawWAV []byte) (string,error) {
 	if !ok {
 		return "",errors.New("Bad return format")
 	}
-	err_no := err_no_i.(int)
+	err_no := int(err_no_i.(float64))
 	if err_no!=0 {
 		return "",errors.New("API error: "+strconv.Itoa(err_no))
 	}
